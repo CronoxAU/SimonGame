@@ -1,9 +1,116 @@
-body {
-  font-family: 'Overpass Mono', monospace;
-  color:#263238;
-  font-size:20px;
+
+
+.wrapper {
+	width: 540px;
+	margin: 0 auto;
+}
+
+ul {
+	list-style: none;
+}
+
+ul, li {
+	padding: 0;
+	margin: 0;
+}
+.simon {
+	background: #fff;
+	position: relative;
+	float: left;
+	margin-right: 3em;	
+	width: 302px;
+	height: 295px;
+	-webkit-border-radius: 150px 150px 150px 150px;
+	border-radius: 150px 150px 150px 150px;
+    -moz-box-shadow: 2px 1px 12px #aaa;
+    -webkit-box-shadow: 2px 1px 12px #aaa;
+    -o-box-shadow: 2px 1px 12px #aaa;
+    box-shadow: 2px 1px 12px #aaa;
+}
+
+.active {
+	opacity: 1 !important;
+}
+
+.clearfix {
+	width: 100%;
+	clear: both;
 }
 
 .section {
-  opacity: .5;
+	opacity: 0.5;
+	-webkit-transition: opacity 250ms ease;
+	-moz-transition: opacity 250ms ease;
+	-ms-transition: opacity 250ms ease;
+	-o-transition: opacity 250ms ease;
+	transition: opacity 250ms ease;
+}
+
+.section.lit {
+	opacity: 1;
+}
+
+.red, .blue, .yellow, .green {
+	height: 290px;
+	-webkit-border-radius: 150px 150px 150px 150px;
+	border-radius: 150px 150px 150px 150px;
+	position: absolute;
+	text-indent: 10000px;
+  margin:3px;
+}
+
+.red:hover, .blue:hover, .yellow:hover, .green:hover {
+	border: 2px solid black
+}
+
+.red {
+	background: 	#C23B22;
+	clip: rect(0px, 300px, 150px, 150px);
+	width: 296px;
+}
+
+.blue {
+	background: 	#779ECB;
+	clip: rect(0px, 150px, 150px, 0px);
+	width: 300px;
+}
+
+.yellow {
+	background: #FFB347;
+	clip: rect(150px, 150px, 300px, 0px);
+	width: 300px;
+}
+
+.green {
+	background: 		#03C03C;
+	clip: rect(150px,300px, 300px, 150px);
+	width: 296px;
+}
+
+.game-info {
+	margin-top: 90px;
+}
+
+.game-options h2 {
+	margin-top: 30px;
+	margin-bottom: 0;
+}
+
+.highlight-text{
+	color: #AA0000
+}
+
+.game-options input[type="radio"] {
+	margin-right: 10px;
+}
+
+.hoverable:hover {
+	cursor: pointer;
+}
+
+footer {
+	position: absolute;
+	bottom: 20px;
+	clear: both;
+	text-align: center;
 }
