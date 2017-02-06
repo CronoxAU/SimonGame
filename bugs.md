@@ -1,7 +1,6 @@
-- Delay the call of the play sequence call when starting a new level
-- Add "you lose" functionality for strict game, ie automatically start a new game on wrong guess
-- Add "wrong guess" functionality for normal game, including resetting the guess level
-- Add "you win functionality
+- Add "you win" functionality
 - Complete free play implimentation
-- Automtically restart game when game mode is changed
+- Flash the current level text when the use gets to a new level
+- Don't start a new game when loading the page initially
+- when starting a new game, stop any other timers (ie stop the playback sequence if we are in the middle of it)
 - Update style (select relevent font, look at nicer radio buttons/options etc.)
