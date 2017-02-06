@@ -19,9 +19,6 @@ var game = {
 			});
 		}
     this.startNewGame();
-    if(this.mode !== 'free'){
-      this.playbackCurrent();
-  }
   },
 
   startNewGame: function () {
@@ -31,6 +28,7 @@ var game = {
     console.log('new game, mode is ' + this.mode);
     if(this.mode !== 'free'){
     this.gameLevel = 1;
+    this.userTurnLevel =  0;
     $('[data-level]').text(this.gameLevel);
     } else {
       $('[data-level]').text('free play');
@@ -39,6 +37,9 @@ var game = {
     this.gameOver = 0;
     $('p[data-action="lose"]').hide();
     $('p[data-action="wrong"]').hide();
+        if(this.mode !== 'free'){
+      this.playbackCurrent();
+  }
   },
 
   flash: function (sID) {
@@ -51,8 +52,10 @@ var game = {
   },
 
   changeMode: function(e) {
+      console.log('changing mode');
 			this.mode = e.target.value;
-      this.startNewGame;
+      console.log('mode is ' + this.mode);
+      this.startNewGame();
 		},
 
   playSound: function(sID){
@@ -75,17 +78,36 @@ var game = {
 	},
 
   userPlayed: function(sID){
+    var that = this;
     if(this.sequence[this.userTurnLevel] == sID){
         this.userTurnLevel++;
         if(this.userTurnLevel == this.gameLevel){
             this.newLevel();
         }         
     } else {
-
+  if(this.mode == 'strict'){
+        that.playerFailsStrict();
+    } else if(this.mode == 'normal'){
+        that.playerFailsNormal();
+    }
     }
   },
 
+  playerFailsStrict: function(){
+      var that = this;
+      $('p[data-action="lose"]').show();
+      setTimeout(function() {that.startNewGame();}, 3000);
+  },
+
+  playerFailsNormal: function(){
+      var that = this;
+      $('p[data-action="wrong"]').show();
+      this.userTurnLevel = 0;
+      setTimeout(function() {that.playbackCurrent();}, 1500);
+  },
+
   newLevel: function(){
+    var that = this;
     this.gameLevel++;
     this.userTurnLevel= 0;
     $('[data-level]').text(this.gameLevel);
@@ -93,20 +115,21 @@ var game = {
 				window.setTimeout(function() {
 					$section.removeClass('highlight-text');
 				}, 500);
-    this.playbackCurrent();
+    setTimeout(function() {that.playbackCurrent();}, 1000);
   },
 
   playbackCurrent: function () {
     var that = this;
-    console.log(this.sequence);
-    $.each(this.sequence, function (index, val) {		//iterate over each value in the generated array
+    $('p[data-action="wrong"]').hide();
+    this.usersTurn=false; //stop the user from inputting anything while we are playing back
+    $.each(this.sequence, function (index, val) {		
       if (that.gameLevel-1 >= index) {         //only flash items up to and including the current level
         setTimeout(function () {
           that.flash(val);
-        }, 1000 * index);				// multiply timeout by how many items in the array so that they play sequentially
+      }, 1000 * index);				
       }
     });
-    this.usersTurn=true;
+  setTimeout(function () {that.usersTurn=true;},1000 * this.gameLevel); //allow the user to input again after waiting for the playback to complete
   }
 };
 
