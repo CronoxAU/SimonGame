@@ -1,15 +1,19 @@
 <!doctype html>
 <html>
+
 <head>
-  	<link rel="stylesheet" href="simon.css" type="text/css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="simon.css" type="text/css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+		crossorigin="anonymous">
 	<script src="lib/jquery-3.1.1.js"></script>
-  <script src="js/simon.js" type="text/javascript"></script>
+	<script src="js/simon.js" type="text/javascript"></script>
 
 </head>
+
 <body>
-<div class="wrapper">
-  <div class="game-board">
+	<div class="wrapper">
+		<div>
+			<div class="game-board">
 				<div class="simon">
 					<ul>
 						<li id="0" class="section red" data-section="0"></li>
@@ -19,11 +23,12 @@
 					</ul>
 				</div>
 			</div>
-      			<div class="game-info">
+			<div class="game-info">
 				<h2 id="level">Level: <span data-level="0">0</span></h2>
 				<button class="btn btn-primary" data-action="start">New Game</button>
 				<p data-action="lose">Sorry, you lost on level <span data-level="0"></span>.</p>
-				<p data-action="wrong">Sorry, wrong button, replaying level <span data-level="0"></span> </p>
+				<p data-action="wrong">Sorry, wrong button, replaying level <span data-level="0"></span>.</p>
+				<p data-action="win">Congratulations!!! YOU WIN!</p>
 			</div>
 			<div>
 				<h2>Mode</h2>
@@ -31,10 +36,22 @@
 				<input type="radio" name="mode" value="strict">Strict<br>
 				<input type="radio" name="mode" value="free">Free play
 			</div>
-		<div data-action="sound"></div>
+			<div data-action="sound"></div>
+		</div>
+		<div class="instructions">
+			<h2>Instructions</h2>
+			<li>Copy the sequence of button flashes</li>
+			<li>As your level increases the sequence get's longer</li>
+			<li>Reach level 20 to complete the game</li>
+			<h2>Game Modes</h2>
+			<li><strong>Normal</strong> - Standard game mode, if you make a mistake the game will restart the current level.</li>
+			<li><strong>Strict</strong> - Expert mode, if you make a mistake the game is over, you start back at level 1 with a new sequence.</li>
+			<li><strong>Free play</strong> - No sequence or levels, you are free to make your own light and sound show.</li>
+		</div>
 		<footer>
-      Created by Chris McLean for <a href='https://www.freecodecamp.com'>FreeCodeCamp</a> with abundent help from <a href="https://codeplanet.io/building-simon-says-javascript/">Kelly King</a>
+			Created by Chris McLean for <a href='https://www.freecodecamp.com'>FreeCodeCamp</a> with abundent help from <a href="https://codeplanet.io/building-simon-says-javascript/">Kelly King</a>
 		</footer>
-</div>
+	</div>
 </body>
+
 </html>

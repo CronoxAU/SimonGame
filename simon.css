@@ -108,6 +108,11 @@ ul, li {
 	cursor: pointer;
 }
 
+.instructions{
+	float: left;
+	padding-top: 50px;
+}
+
 footer {
 	position: absolute;
 	bottom: 20px;
