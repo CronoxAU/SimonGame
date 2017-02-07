@@ -1,6 +1,3 @@
-- Add "you win" functionality
-- Complete free play implimentation
-- Flash the current level text when the use gets to a new level
-- Don't start a new game when loading the page initially
+- Add instructions section, giving the user a basic overview of the gameplay and the modes.
 - when starting a new game, stop any other timers (ie stop the playback sequence if we are in the middle of it)
 - Update style (select relevent font, look at nicer radio buttons/options etc.)
