@@ -1,5 +1,3 @@
-
-
 .wrapper {
 	width: 540px;
 	margin: 0 auto;
@@ -88,7 +86,9 @@ ul, li {
 }
 
 .game-info {
-	margin-top: 90px;
+	margin-top: 50px;
+	float:right;
+	font-family: 'VT323', monospace;
 }
 
 .game-options h2 {
@@ -97,7 +97,7 @@ ul, li {
 }
 
 .highlight-text{
-	color: #AA0000
+	color: #11AA11
 }
 
 .game-options input[type="radio"] {
@@ -110,7 +110,21 @@ ul, li {
 
 .instructions{
 	float: left;
-	padding-top: 50px;
+	padding-top: 15px;
+	font-family: 'VT323', monospace;
+}
+
+.header{
+	float: left;
+	padding-top: 5px;
+	padding-bottom: 25px;
+	height: 110px;
+	width: 400px;
+	font-family: 'VT323', monospace;
+}
+
+.main-game{
+	float: left;
 }
 
 footer {
@@ -118,4 +132,5 @@ footer {
 	bottom: 20px;
 	clear: both;
 	text-align: center;
+	font-family: 'VT323', monospace;
 }
